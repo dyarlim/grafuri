@@ -20,7 +20,7 @@ desen Buton(char* text, int c, int textsize, int text_color, int bg_color, int V
     setfillstyle(SOLID_FILL, DARKGRAY);
     setcolor(BLACK); //contur
     bar(buton.st, buton.sus, buton.dr, buton.jos);
-    rectangle(buton.st, buton.sus, buton.dr, buton.jos);
+    rectangle(buton.st, buton.sus, buton.dr, buton.jos); // test
 
     SetBkMode(0, OPAQUE);
     setbkcolor(DARKGRAY);
