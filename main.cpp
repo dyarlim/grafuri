@@ -7,7 +7,7 @@ struct desen {
 
 desen Buton(char* text, int c, int textsize, int text_color, int bg_color, int V)
 {
-    settextstyle(GOTHIC_FONT, HORIZ_DIR, textsize);
+    settextstyle(GOTHIC_FONT, HORIZ_DIR, textsize); // idk
 
     int x = 400 - (textwidth(text) / 2);
     int y = c - (textheight(text) / 2);
