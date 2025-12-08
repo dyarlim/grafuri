@@ -5,9 +5,25 @@ struct desen {
     int st, sus, dr, jos;
 }buton;
 
+void nod() // 
+{
+    circle(250, 200, 20);
+}
+
+bool inauntrucerc(int px, int py, int cx, int cy, int r)
+{
+    int dx = px - cx;
+    int dy = py - cy;
+
+    long dist = (long)dx * dx + (long)dy * dy;
+    long rad = (long)r * r;
+    return dist <= rad;
+}
+
+
 desen Buton(char* text, int c, int textsize, int text_color, int bg_color, int V)
 {
-    settextstyle(GOTHIC_FONT, HORIZ_DIR, textsize); // idk
+    settextstyle(GOTHIC_FONT, HORIZ_DIR, textsize); 
 
     int x = 400 - (textwidth(text) / 2);
     int y = c - (textheight(text) / 2);
@@ -20,7 +36,7 @@ desen Buton(char* text, int c, int textsize, int text_color, int bg_color, int V
     setfillstyle(SOLID_FILL, DARKGRAY);
     setcolor(BLACK); //contur
     bar(buton.st, buton.sus, buton.dr, buton.jos);
-    rectangle(buton.st, buton.sus, buton.dr, buton.jos); // test
+    rectangle(buton.st, buton.sus, buton.dr, buton.jos); 
 
     SetBkMode(0, OPAQUE);
     setbkcolor(DARKGRAY);
@@ -45,6 +61,50 @@ void MENIU()
     Buton("GRAFURI NEORIENTATE", 200, 3, BLACK, DARKGRAY, 800);
     Buton("GRAFURI ORIENTATE", 300, 3, BLACK, DARKGRAY, 800);
     Buton("EXIT", 450, 3, BLACK, DARKGRAY, 800);
+}
+void ECRAN1() {
+    
+        setbkcolor(LIGHTRED);
+        settextstyle(DEFAULT_FONT, HORIZ_DIR, 2);
+        setcolor(RED);
+        outtextxy(240, 10, "Algoritmica Grafurilor");
+
+        setcolor(RED);
+        outtextxy(260, 35, "Grafuri neorientate");
+
+        setcolor(RED);
+        outtextxy(300, 558, "x pentru exit");
+
+       
+        int Mx = -1, My = -1;
+        if (ismouseclick(WM_LBUTTONDOWN))
+        {
+            getmouseclick(WM_LBUTTONDOWN, Mx, My);
+            setcolor(RED);
+            circle(Mx,My, 20);
+            clearmouseclick(WM_LBUTTONDOWN);  // asta  nu iese
+        }
+        
+            
+
+
+    
+}
+void ECRAN2() {
+    
+        setbkcolor(LIGHTRED);
+        settextstyle(DEFAULT_FONT, HORIZ_DIR, 2);
+        setcolor(RED);
+        outtextxy(240, 10, "Algoritmica Grafurilor");
+
+        setcolor(RED);
+        outtextxy(260, 35, "Grafuri orientate");
+
+        setcolor(RED);
+        outtextxy(300, 558, "x pentru exit");
+
+      
+    
 }
 
 bool inauntru(int mx, int my, int x, int y, int w, int h)
@@ -84,37 +144,10 @@ int main()
         cleardevice();
 
         if (ecran == 0) MENIU();
-        else if (ecran == 1)
-        {
-            setbkcolor(LIGHTRED);
-            settextstyle(DEFAULT_FONT, HORIZ_DIR, 2);
-            setcolor(RED);
-            outtextxy(240, 10, "Algoritmica Grafurilor");
+        else if (ecran == 1) ECRAN1();
 
-            setcolor(RED);
-            outtextxy(260, 35, "Grafuri neorientate");
-
-            setcolor(RED);
-            outtextxy(300, 558, "x pentru exit");
-
-
-        }
-        else if (ecran == 2)
-        {
-            setbkcolor(LIGHTRED);
-            settextstyle(DEFAULT_FONT, HORIZ_DIR, 2);
-            setcolor(RED);
-            outtextxy(240, 10, "Algoritmica Grafurilor");
-
-            setcolor(RED);
-            outtextxy(260, 35, "Grafuri orientate");
-
-            setcolor(RED);
-            outtextxy(300, 558, "x pentru exit");
-
-
-        }
-
+        else if (ecran == 2) ECRAN2();
+       
         if (kbhit())
         {
             if (tolower(getch()) == 'x') ok = false;
