@@ -7,7 +7,7 @@ struct desen {
 
 desen Buton(char* text, int c, int textsize, int text_color, int bg_color, int V)
 {
-    settextstyle(GOTHIC_FONT, HORIZ_DIR, textsize); // idk
+    settextstyle(GOTHIC_FONT, HORIZ_DIR, textsize);
 
     int x = 400 - (textwidth(text) / 2);
     int y = c - (textheight(text) / 2);
@@ -29,6 +29,38 @@ desen Buton(char* text, int c, int textsize, int text_color, int bg_color, int V
 
     return buton;
 }
+
+desen butoanejos(char* text, int textsize, int bg_color, int cx, int cy)
+{
+    settextstyle(GOTHIC_FONT, HORIZ_DIR, textsize);
+
+    int w = textwidth(text);
+    int h = textheight(text);
+
+    int left = cx - w / 2 - 10;
+    int top = cy - h / 2 - 10;
+    int right = cx + w / 2 + 10;
+    int bottom = cy + h / 2 + 10;
+
+    buton.st = left;
+    buton.sus = top;
+    buton.dr = right;
+    buton.jos = bottom;
+
+    setfillstyle(SOLID_FILL, bg_color);
+    bar(left, top, right, bottom);
+
+    setcolor(BLACK);
+    rectangle(left, top, right, bottom);
+
+    setbkcolor(bg_color);
+    setcolor(RED);
+    outtextxy(cx - w / 2, cy - h / 2, text);
+
+    return buton;
+}
+
+
 void MENIU()
 {
     setbkcolor(LIGHTRED);
@@ -78,10 +110,10 @@ int main()
                 if (inauntru(mx, my, 300, 425, 200, 40)) ok = false;
             }
 
-            clearmouseclick(WM_LBUTTONDOWN);
+            
         }
 
-        cleardevice();
+        
 
         if (ecran == 0) MENIU();
         else if (ecran == 1)
@@ -96,6 +128,17 @@ int main()
 
             setcolor(RED);
             outtextxy(300, 558, "x pentru exit");
+
+          
+
+            int cx = getmaxx() / 2;
+            int cy = getmaxy() / 2 + 200;
+
+            int offset = 150;
+
+            butoanejos("Adauga un nod", 1, LIGHTRED, cx - offset, cy);
+            butoanejos("Adauga o muchie", 1, LIGHTRED, cx + offset, cy);
+
 
 
         }
@@ -124,7 +167,7 @@ int main()
         next_page = 1 - page;
 
         if (kbhit() && getch() == 27) break;
-        delay(10);
+        delay(7);
     }
     cleardevice();
 
@@ -136,3 +179,4 @@ int main()
     closegraph();
     return 0;
 }
+
