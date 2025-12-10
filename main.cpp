@@ -30,6 +30,11 @@ desen Buton(char* text, int c, int textsize, int text_color, int bg_color, int V
     return buton;
 }
 
+bool inauntru(int mx, int my, int x, int y, int w, int h)
+{
+    return mx > x && mx < x + w && my > y && my < y + h; // x+w=dreapasus; x=stangasus; y+h=dreaptajos; y=
+}
+
 desen butoanejos(char* text, int textsize, int bg_color, int cx, int cy)
 {
     settextstyle(GOTHIC_FONT, HORIZ_DIR, textsize);
@@ -57,8 +62,24 @@ desen butoanejos(char* text, int textsize, int bg_color, int cx, int cy)
     setcolor(RED);
     outtextxy(cx - w / 2, cy - h / 2, text);
 
+    int mx, my;
+    if (ismouseclick(WM_LBUTTONDOWN))
+    {
+        getmouseclick(WM_LBUTTONDOWN, mx, my);
+
+        if (ecran == 1)
+        {
+            if (inauntru(mx, my, 300, 150, textwidth("Adauga o muchie"), textheight("Adauga un nod") adauganod();
+            if (inauntru(mx, my, 300, 250, textwidth("Adauga un nod"), textheight("Adauga o muchie") adaugamuchie();
+
+        }
+
+
+    }
+
     return buton;
 }
+
 
 
 void MENIU()
@@ -79,10 +100,7 @@ void MENIU()
     Buton("EXIT", 450, 3, BLACK, DARKGRAY, 800);
 }
 
-bool inauntru(int mx, int my, int x, int y, int w, int h)
-{
-    return mx > x && mx < x + w && my > y && my < y + h;
-}
+
 
 int main()
 {
@@ -140,7 +158,6 @@ int main()
             butoanejos("Adauga o muchie", 1, LIGHTRED, cx + offset, cy);
 
 
-
         }
         else if (ecran == 2)
         {
@@ -179,4 +196,3 @@ int main()
     closegraph();
     return 0;
 }
-
