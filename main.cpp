@@ -69,8 +69,8 @@ desen butoanejos(char* text, int textsize, int bg_color, int cx, int cy)
 
         if (ecran == 1)
         {
-            if (inauntru(mx, my, 300, 150, textwidth("Adauga o muchie"), textheight("Adauga un nod") adauganod();
-            if (inauntru(mx, my, 300, 250, textwidth("Adauga un nod"), textheight("Adauga o muchie") adaugamuchie();
+            if (inauntru(mx, my, left, top, textwidth("Adauga o muchie"), textheight("Adauga un nod"))) adauganod();
+            if (inauntru(mx, my, left, top, textwidth("Adauga un nod"), textheight("Adauga o muchie"))) adaugamuchie();
 
         }
 
